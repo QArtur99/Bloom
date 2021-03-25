@@ -61,7 +61,7 @@ fun Welcome(isDarkTheme: Boolean, navController: NavController) {
         Background(backgroundRes)
         Column(
             modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
+            verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Image(
