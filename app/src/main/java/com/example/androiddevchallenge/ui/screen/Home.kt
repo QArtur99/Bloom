@@ -241,9 +241,11 @@ fun GardenList() {
                         )
                     )
 
-                    Divider(Modifier.constrainAs(divider) {
-                        bottom.linkTo(parent.bottom)
-                    })
+                    Divider(
+                        Modifier.constrainAs(divider) {
+                            bottom.linkTo(parent.bottom)
+                        }
+                    )
                 }
             }
         }
@@ -284,7 +286,6 @@ private fun SearchField(searchState: MutableState<String>) {
         )
     )
 }
-
 
 @Composable
 private fun BottomActionBar() {

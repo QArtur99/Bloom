@@ -1,7 +1,4 @@
 # WeTrade
-
-<!--- Replace <OWNER> with your Github Username and <REPOSITORY> with the name of your repository. -->
-<!--- You can find both of these in the url bar when you open your repository in github. -->
 ![Workflow result](https://github.com/QArtur99/Bloom/workflows/Check/badge.svg)
 
 ## :scroll: Description
@@ -15,16 +12,14 @@ APAC-friendly: 9AM UTC+8
 ## :camera_flash: Screenshots
 
 <p float="left">
-<img src="/results/screenshot_1.png" width="200">
-<img src="/results/screenshot_2.png" width="200">
-<img src="/results/screenshot_3.png" width="200">
-<img src="/results/screenshot_4.png" width="200">|
+<img src="/results/screenshot_1.png" width="260">
+<img src="/results/screenshot_2.png" width="260">
+<img src="/results/screenshot_3.png" width="260">
 </p>
 <p float="left">
-<img src="/results/screenshot_5.png" width="200">
-<img src="/results/screenshot_6.png" width="200">
-<img src="/results/screenshot_7.png" width="200">
-<img src="/results/screenshot_8.png" width="200">
+<img src="/results/screenshot_4.png" width="260">|
+<img src="/results/screenshot_5.png" width="260">
+<img src="/results/screenshot_6.png" width="260">
 </p>
 
 ## License
