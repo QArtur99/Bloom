@@ -18,29 +18,47 @@ package com.example.androiddevchallenge
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.view.WindowCompat
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.androiddevchallenge.ui.data.ScreenState
+import com.example.androiddevchallenge.ui.screen.Home
+import com.example.androiddevchallenge.ui.screen.Login
+import com.example.androiddevchallenge.ui.screen.Welcome
 import com.example.androiddevchallenge.ui.theme.MyTheme
+import com.google.accompanist.insets.ProvideWindowInsets
+import com.google.accompanist.insets.navigationBarsPadding
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
             MyTheme {
-                MyApp()
+                ProvideWindowInsets {
+                    Column(Modifier.navigationBarsPadding()) {
+                        MyApp(isSystemInDarkTheme())
+                    }
+                }
             }
         }
     }
 }
 
-// Start building your app here!
 @Composable
-fun MyApp() {
-    Surface(color = MaterialTheme.colors.background) {
-        Text(text = "Ready... Set... GO!")
+fun MyApp(isDarkTheme: Boolean) {
+    val navController = rememberNavController()
+    NavHost(navController = navController, ScreenState.Welcome) {
+        composable(ScreenState.Welcome) { Welcome(isDarkTheme, navController) }
+        composable(ScreenState.Login) { Login(isDarkTheme, navController) }
+        composable(ScreenState.Home) { Home(isDarkTheme) }
     }
 }
 
@@ -48,7 +66,9 @@ fun MyApp() {
 @Composable
 fun LightPreview() {
     MyTheme {
-        MyApp()
+        ProvideWindowInsets {
+            MyApp(isSystemInDarkTheme())
+        }
     }
 }
 
@@ -56,6 +76,8 @@ fun LightPreview() {
 @Composable
 fun DarkPreview() {
     MyTheme(darkTheme = true) {
-        MyApp()
+        ProvideWindowInsets {
+            MyApp(isSystemInDarkTheme())
+        }
     }
 }
