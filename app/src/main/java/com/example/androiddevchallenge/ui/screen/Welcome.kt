@@ -69,7 +69,7 @@ fun Welcome(isDarkTheme: Boolean, navController: NavController) {
                     .fillMaxWidth()
                     .padding(top = 144.dp, start = 88.dp, bottom = 48.dp),
                 imageVector = ImageVector.vectorResource(id = illosRes),
-                contentDescription = "illos",
+                contentDescription = stringResource(R.string.welcome_illos),
                 contentScale = ContentScale.FillBounds,
             )
             Image(
@@ -78,7 +78,7 @@ fun Welcome(isDarkTheme: Boolean, navController: NavController) {
             )
             Text(
                 modifier = Modifier.paddingFromBaseline(top = 32.dp, bottom = 40.dp),
-                text = "Beautiful home garden solutions",
+                text = stringResource(R.string.welcome_subtitle),
                 color = MaterialTheme.colors.onBackground,
                 style = MaterialTheme.typography.subtitle1,
             )
@@ -94,7 +94,7 @@ fun Welcome(isDarkTheme: Boolean, navController: NavController) {
                     .height(48.dp)
             ) {
                 Text(
-                    text = "Create account",
+                    text = stringResource(R.string.welcome_btn_sign_up),
                     color = MaterialTheme.colors.onSecondary,
                     style = MaterialTheme.typography.button,
                 )
@@ -102,7 +102,7 @@ fun Welcome(isDarkTheme: Boolean, navController: NavController) {
             Text(
                 modifier = Modifier
                     .clickable { navController.navigate(route = ScreenState.Login) },
-                text = "Log in",
+                text = stringResource(R.string.welcome_btn_log_in),
                 color = MaterialTheme.colors.onPrimary,
                 style = MaterialTheme.typography.button,
             )

@@ -11,8 +11,24 @@
       -->
     <string name="app_name">AndroidDevChallenge</string>
 
-    <string name="icon_home">Home</string>
-    <string name="icon_favorites">Favorites</string>
-    <string name="icon_profile">Profile</string>
+    <string name="cd_search">search</string>
+    <string name="home_search">Search</string>
+    <string name="home_title_garden">Design your home garden</string>
+    <string name="home_title_themes">Browse themes</string>
     <string name="icon_cart">Cart</string>
+    <string name="icon_favorites">Favorites</string>
+    <string name="icon_home">Home</string>
+    <string name="icon_profile">Profile</string>
+    <string name="login_btn_log_in">Log in</string>
+    <string name="login_email_hint">Email address</string>
+    <string name="login_info_p1">By clicking below, you agree to our</string>
+    <string name="login_info_p2">Terms of Use</string>
+    <string name="login_info_p3">and consent to our</string>
+    <string name="login_info_p4">Privacy Policy</string>
+    <string name="login_pass_hint">Password (8+ characters)</string>
+    <string name="login_title">Log in with email</string>
+    <string name="welcome_btn_log_in">Log in</string>
+    <string name="welcome_btn_sign_up">Create account</string>
+    <string name="welcome_illos">illos</string>
+    <string name="welcome_subtitle">Beautiful home garden solutions</string>
 </resources>

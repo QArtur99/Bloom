@@ -36,6 +36,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextAlign
@@ -43,6 +44,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.navigate
+import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.ui.data.ScreenState
 import com.example.androiddevchallenge.ui.theme.shapes
 
@@ -71,7 +73,7 @@ fun Login(isDarkTheme: Boolean, navController: NavController) {
 private fun Title() {
     Text(
         modifier = Modifier.paddingFromBaseline(top = 276.dp, bottom = 16.dp),
-        text = "Log in with email",
+        text = stringResource(R.string.login_title),
         color = MaterialTheme.colors.onBackground,
         style = MaterialTheme.typography.h1,
     )
@@ -91,7 +93,7 @@ private fun LogInButton(navController: NavController) {
             .height(48.dp)
     ) {
         Text(
-            text = "Log in",
+            text = stringResource(R.string.login_btn_log_in),
             color = MaterialTheme.colors.onSecondary,
             style = MaterialTheme.typography.button,
         )
@@ -101,19 +103,19 @@ private fun LogInButton(navController: NavController) {
 @Composable
 private fun Info() {
     val annotatedString = buildAnnotatedString {
-        append("By clicking below, you agree to our")
+        append(stringResource(R.string.login_info_p1))
         append(" ")
         pushStyle(SpanStyle(textDecoration = TextDecoration.Underline))
         pushStringAnnotation(tag = "URL", annotation = "terms")
-        append("Terms of Use")
+        append(stringResource(R.string.login_info_p2))
         pop()
         pop()
         append(" ")
-        append("and consent to our")
+        append(stringResource(R.string.login_info_p3))
         append(" ")
         pushStyle(SpanStyle(textDecoration = TextDecoration.Underline))
         pushStringAnnotation(tag = "URL", annotation = "policy")
-        append("Privacy Policy")
+        append(stringResource(R.string.login_info_p4))
         pop()
         pop()
     }
@@ -141,7 +143,7 @@ private fun EmailField(emailState: MutableState<String>) {
             Row {
                 Text(
                     modifier = Modifier.align(Alignment.CenterVertically),
-                    text = "Email address",
+                    text = stringResource(R.string.login_email_hint),
                     color = MaterialTheme.colors.onBackground,
                     style = MaterialTheme.typography.body1,
                 )
@@ -167,7 +169,7 @@ private fun PasswordField(emailState: MutableState<String>) {
             Row {
                 Text(
                     modifier = Modifier.align(Alignment.CenterVertically),
-                    text = "Password (8+ characters)",
+                    text = stringResource(R.string.login_pass_hint),
                     color = MaterialTheme.colors.onBackground,
                     style = MaterialTheme.typography.body1,
                 )

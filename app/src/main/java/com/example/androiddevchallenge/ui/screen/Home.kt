@@ -96,7 +96,7 @@ private fun ThemesTitle() {
     ) {
         Text(
             modifier = Modifier.paddingFromBaseline(top = 32.dp, bottom = 16.dp),
-            text = "Browse themes",
+            text = stringResource(R.string.home_title_themes),
             textAlign = TextAlign.Start,
             color = MaterialTheme.colors.onBackground,
             style = MaterialTheme.typography.h1,
@@ -156,7 +156,7 @@ private fun GardenTitle() {
     ) {
         Text(
             modifier = Modifier.paddingFromBaseline(top = 32.dp, bottom = 16.dp),
-            text = "Design your home garden",
+            text = stringResource(R.string.home_title_garden),
             color = MaterialTheme.colors.onBackground,
             style = MaterialTheme.typography.h1,
         )
@@ -269,12 +269,12 @@ private fun SearchField(searchState: MutableState<String>) {
                         .size(18.dp)
                         .padding(end = 4.dp),
                     imageVector = ImageVector.vectorResource(id = R.drawable.ic_baseline_search_24),
-                    contentDescription = "search",
+                    contentDescription = stringResource(R.string.cd_search),
                     tint = MaterialTheme.colors.onBackground
                 )
                 Text(
                     modifier = Modifier.align(Alignment.CenterVertically),
-                    text = "Search",
+                    text = stringResource(R.string.home_search),
                     color = MaterialTheme.colors.onBackground,
                     style = MaterialTheme.typography.body1,
                 )
