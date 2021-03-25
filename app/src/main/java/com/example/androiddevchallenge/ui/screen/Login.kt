@@ -70,7 +70,7 @@ fun Login(isDarkTheme: Boolean, navController: NavController) {
 @Composable
 private fun Title() {
     Text(
-        modifier = Modifier.paddingFromBaseline(top = 184.dp, bottom = 16.dp),
+        modifier = Modifier.paddingFromBaseline(top = 276.dp, bottom = 16.dp),
         text = "Log in with email",
         color = MaterialTheme.colors.onBackground,
         style = MaterialTheme.typography.h1,

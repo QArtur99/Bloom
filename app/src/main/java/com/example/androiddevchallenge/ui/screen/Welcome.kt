@@ -67,7 +67,7 @@ fun Welcome(isDarkTheme: Boolean, navController: NavController) {
             Image(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 72.dp, start = 88.dp, bottom = 48.dp),
+                    .padding(top = 144.dp, start = 88.dp, bottom = 48.dp),
                 imageVector = ImageVector.vectorResource(id = illosRes),
                 contentDescription = "illos",
                 contentScale = ContentScale.FillBounds,

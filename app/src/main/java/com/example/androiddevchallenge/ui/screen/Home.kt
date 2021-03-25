@@ -20,6 +20,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -31,6 +33,9 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.BottomAppBar
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Card
+import androidx.compose.material.Checkbox
+import androidx.compose.material.CheckboxDefaults
+import androidx.compose.material.Divider
 import androidx.compose.material.FabPosition
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
@@ -51,7 +56,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.constraintlayout.compose.ConstraintLayout
 import com.example.androiddevchallenge.R
+import com.example.androiddevchallenge.ui.data.gardenList
 import com.example.androiddevchallenge.ui.data.themeList
 import com.example.androiddevchallenge.ui.theme.Elevation
 
@@ -77,6 +84,7 @@ fun Home(isDarkTheme: Boolean) {
             ThemesTitle()
             ThemesList()
             GardenTitle()
+            GardenList()
         }
     }
 }
@@ -123,7 +131,7 @@ fun ThemesList() {
                         modifier = Modifier
                             .width(136.dp)
                             .height(40.dp)
-                            .background(color = MaterialTheme.colors.background)
+                            .background(color = MaterialTheme.colors.surface)
                     ) {
                         Text(
                             modifier = Modifier
@@ -152,6 +160,93 @@ private fun GardenTitle() {
             color = MaterialTheme.colors.onBackground,
             style = MaterialTheme.typography.h1,
         )
+        Spacer(modifier = Modifier.weight(1f))
+        Icon(
+            painter = painterResource(id = R.drawable.ic_baseline_filter_list_24),
+            contentDescription = "",
+            modifier = Modifier
+                .size(24.dp)
+                .align(Alignment.CenterVertically),
+            tint = MaterialTheme.colors.onBackground
+        )
+    }
+}
+
+@Composable
+fun GardenList() {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 16.dp, end = 16.dp, top = 0.dp, bottom = 8.dp)
+    ) {
+        for (item in gardenList) {
+            Row(
+                Modifier
+                    .height(64.dp)
+                    .padding(bottom = 8.dp)
+            ) {
+                Card(
+                    modifier = Modifier.padding(end = 16.dp),
+                    shape = MaterialTheme.shapes.small
+                ) {
+                    Image(
+                        modifier = Modifier
+                            .height(64.dp)
+                            .width(64.dp),
+                        painter = painterResource(item.res),
+                        contentScale = ContentScale.Crop,
+                        contentDescription = item.name
+                    )
+                }
+                ConstraintLayout(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(end = 16.dp)
+                ) {
+                    val (title, subtitle, checkbox, divider) = createRefs()
+
+                    Text(
+                        modifier = Modifier
+                            .constrainAs(title) {
+                                top.linkTo(parent.top)
+                            }
+                            .paddingFromBaseline(top = 16.dp, bottom = 0.dp),
+                        text = item.name,
+                        color = MaterialTheme.colors.onBackground,
+                        style = MaterialTheme.typography.h2,
+                    )
+
+                    Text(
+                        modifier = Modifier
+                            .constrainAs(subtitle) {
+                                top.linkTo(title.bottom)
+                            },
+                        text = item.name,
+                        color = MaterialTheme.colors.onBackground,
+                        style = MaterialTheme.typography.body1,
+                    )
+                    val checkboxState = remember { mutableStateOf(false) }
+                    Checkbox(
+                        checked = checkboxState.value,
+                        onCheckedChange = {
+                            checkboxState.value = it
+                        },
+                        modifier = Modifier.constrainAs(checkbox) {
+                            end.linkTo(parent.end)
+                            bottom.linkTo(subtitle.bottom)
+                        },
+                        colors = CheckboxDefaults.colors(
+                            checkedColor = MaterialTheme.colors.secondary,
+                            checkmarkColor = MaterialTheme.colors.onSecondary
+                        )
+                    )
+
+                    Divider(Modifier.constrainAs(divider) {
+                        bottom.linkTo(parent.bottom)
+                    })
+                }
+            }
+        }
     }
 }
 
@@ -160,7 +255,7 @@ private fun SearchField(searchState: MutableState<String>) {
     OutlinedTextField(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(start = 16.dp, end = 16.dp, top = 40.dp)
+            .padding(start = 16.dp, end = 16.dp, top = 80.dp)
             .height(56.dp),
         value = searchState.value,
         onValueChange = { searchState.value = it },
