@@ -1,4 +1,4 @@
-# WeTrade
+# Bloom
 ![Workflow result](https://github.com/QArtur99/Bloom/workflows/Check/badge.svg)
 
 ## :scroll: Description
