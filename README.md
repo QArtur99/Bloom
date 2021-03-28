@@ -2,8 +2,7 @@
 ![Workflow result](https://github.com/QArtur99/Bloom/workflows/Check/badge.svg)
 
 ## :scroll: Description
-Android Dev Challenge: Week 3 - Speed round
-
+Android Dev Challenge: Week 3 - Speed round  
 APAC-friendly: 9AM UTC+8
 
 ## :bulb: Motivation and Context
